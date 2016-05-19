@@ -8,11 +8,15 @@ angular.module('todoService', [])
 				return $http.get('/api/todos');
 			},
 			create : function(todoData) {
+				console.log($http);
+				todoData.snoozed = false;
+				todoData.completed = false;
+				//console.log(todoData);
 				return $http.post('/api/todos', todoData);
 			},
-			delete : function(todoData) {
-				console.log(todoData);
-				return $http.post('/api/todos', todoData);
+			delete : function() {
+				
+				return $http.post('/api/todos', null);
 			}
 
 		}
