@@ -17,7 +17,8 @@
 		body 					{ padding-top:50px; }
 		#todo-list 				{ margin-bottom:30px; }
 		#todo-form 	 			{ margin-bottom:50px; }
-		.checked 				{ text-decoration: line-through; }
+		.checked:checked + span				{ text-decoration: line-through; }
+		.space				{padding-left:5em;}
 	</style>
 
 	<!-- SPELLS -->
@@ -42,11 +43,14 @@
 			<div class="col-sm-4 col-sm-offset-4">
 
 				<div class="checkbox"  ng-repeat="todo in todos">
-                                  <label>
-                                  	<input type="checkbox" ng-model="checked" class="checked"> {{ todo.text }}
-                                  	<button ng-show="checked" ng-click="deleteTodo($index)">Delete</button>
-                                  </label>
-                                 </div>
+                            <label>
+                            		<span ng-show="todo.snoozed"><<&nbsp;&nbsp;&nbsp;</span>
+                                  	<button ng-show="checked"  ng-click="snoozeTodo($index)">>>&nbsp;&nbsp;&nbsp;</button>
+                                  		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  		<input type="checkbox" ng-click="completeTodo($index)" ng-model="checked" class="checked"> <span>{{ todo.text }}</span>
+                                  	<button ng-show="checked" ng-click="deleteTodo($index)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete</button>
+                            </label>
+                        </div>
                              
 				<p class="text-center" ng-show="loading">
 					<span class="fa fa-spinner fa-spin fa-3x"></span>

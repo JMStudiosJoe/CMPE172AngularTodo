@@ -25,6 +25,7 @@ module.exports = function(app) {
 	app.post('/api/todos', function(req, res) {
 
 		// create a todo, information comes from AJAX request from Angular
+
 		Todo.create({
 			text : req.body.text,
 			done : false
@@ -37,6 +38,7 @@ module.exports = function(app) {
 		});
 
 	});
+
 
 	// application -------------------------------------------------------------
 	app.get('*', function(req, res) {

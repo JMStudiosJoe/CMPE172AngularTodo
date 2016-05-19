@@ -16,6 +16,36 @@ angular.module('todoController', [])
 
 		// CREATE ==================================================================
 		// when submitting the add form, send the text to the node API
+		$scope.snoozeTodo = function(index)
+		{
+			//remove from todo list then call delete in service
+			$scope.todos[index].snoozed = !$scope.todos[index].snoozed;
+			console.log($scope.todos[index]);
+			// Todos.delete($scope.todos)
+
+			// 		// if successful creation, call our get function to get all the new todos
+			// 		.success(function(data) {
+			// 			$scope.loading = false;
+			// 			$scope.formData = {}; // clear the form so our user is ready to enter another
+			// 			$scope.todos = data; // assign our new list of todos
+			// 		});
+
+		};
+		$scope.completeTodo = function(index)
+		{
+			//remove from todo list then call delete in service
+			$scope.todos[index].completed = !$scope.todos[index].completed;
+			console.log($scope.todos[index]);
+			// Todos.delete($scope.todos)
+
+			// 		// if successful creation, call our get function to get all the new todos
+			// 		.success(function(data) {
+			// 			$scope.loading = false;
+			// 			$scope.formData = {}; // clear the form so our user is ready to enter another
+			// 			$scope.todos = data; // assign our new list of todos
+			// 		});
+
+		};
 		$scope.deleteTodo = function(index)
 		{
 			//remove from todo list then call delete in service
